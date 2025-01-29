@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rắn Vàng Tìm Lộc</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="game-container">
+    <h1>Rắn Vàng Tìm Lộc</h1>
+    <div class="score">Lì xì: <span id="score">0</span></div>
+    <div class="time">Thời gian: <span id="time">35</span> giây</div>
+    <canvas id="gameCanvas" width="400" height="400"></canvas>
+    <div class="game-over" id="gameOver">
+      <h2>Game Over!</h2>
+      <p>Lì xì của bạn: <span id="finalScore">0</span></p>
+      <button onclick="restartGame()">Chơi lại</button>
+    </div>
+  </div>
+
+  <div id="startModal" class="modal">
+    <div class="modal-content">
+      <h2>Hướng dẫn</h2>
+      <div class="instruction-item">
+        <div class="food-demo red-food"></div>
+        <span>+1 điểm</span>
+      </div>
+      <div class="instruction-item">
+        <div class="food-demo gold-food"></div>
+        <span>+5 điểm</span>
+      </div>
+      <button class="start-button" onclick="startGame()">Bắt đầu</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

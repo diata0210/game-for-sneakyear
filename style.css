@@ -1,0 +1,240 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0e68c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.game-container {
+  text-align: center;
+  background-color: #ffcc00;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  color: #d22b2b;
+  font-size: 2rem;
+}
+
+.score, .time {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+#gameCanvas {
+  background-color: #fff;
+  border: 2px solid #000;
+  display: block;
+  margin: 0 auto;
+}
+
+.instructions {
+  font-size: 1rem;
+  color: #555;
+  margin-top: 10px;
+  text-align: left;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+  left: 0;
+  top: 0;
+  width: auto;
+}
+
+.instruction-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 15px 0;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 8px;
+  width: 200px;
+}
+
+.food-demo {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+}
+
+.red-food {
+  background-color: #FF0000;
+  border: 2px solid #CC0000;
+}
+
+.gold-food {
+  background-color: #FFD700;
+  border: 2px solid #FF8C00;
+}
+
+.bonus-food {
+  background-color: #FFD700;
+  border: 2px solid #FF8C00;
+  animation: bonusPulse 1s infinite;
+}
+
+@keyframes bonusPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.game-over {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  display: none;
+}
+
+.snake-segment {
+  background-color: #32CD32;
+  border: 2px solid #006400;
+  border-radius: 50%;
+}
+
+.snake-head {
+  background-color: #32CD32;
+  border: 2px solid #006400;
+  border-radius: 50%;
+  position: relative;
+}
+
+.snake-head::before {
+  content: '';
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  border-radius: 50%;
+}
+
+.snake-head::after {
+  content: '';
+  position: absolute;
+  top: 25%;
+  right: 25%;
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  border-radius: 50%;
+}
+
+.time-bonus {
+  background-color: #1E90FF;
+  border: 2px solid #0000FF;
+  animation: bonusPulse 1s infinite;
+}
+
+.start-button {
+  font-size: 1.5rem;
+  padding: 10px 20px;
+  background-color: #32CD32;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.start-button:hover {
+  background-color: #228B22;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-content {
+  background: linear-gradient(145deg, #ffcc00, #ffd700);
+  margin: 10% auto;
+  padding: 40px;
+  border: none;
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+  animation: slideIn 0.4s ease-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+}
+
+.modal-content h2 {
+  color: #d22b2b;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.modal-content p {
+  font-size: 1.2rem;
+  color: #333;
+  margin: 15px 0;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 8px;
+}
+
+/* Removed .close styles */
+
+/* Removed .close:hover styles */
+
+.modal-content .start-button {
+  position: relative;
+  font-size: 1.5rem;
+  padding: 15px 30px;
+  background: linear-gradient(145deg, #32CD32, #228B22);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  width: 200px;
+ margin-top: auto;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
